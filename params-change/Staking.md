@@ -13,7 +13,7 @@ If you're technically-inclined, [these are the technical specifications](#techni
 
 ## 1. `UnbondingTime`
 ### The time duration required for bonded ATOMs to unbond and become transferrable, in nanoseconds.
-#### `cosmoshub-3` default: `1814400000000000`
+#### `cosmoshub-4` default: `1814400000000000`
 
 In order to participate as a Cosmos Hub validator or delegator, ATOMs must be bonded (also known as staking). Once bonded, ATOMs are locked by the protocol and are no longer transferrable. When ATOM unbonding is initiated, the `UnbondingTime` of 1814400000000000 nanoseconds (21 days) duration must pass before the ATOMs will be unlocked and transferrable.
 
@@ -35,7 +35,7 @@ The ability to punish a validator for committing equivocation is associated with
 
 ## 2. `MaxValidators`
 ### The maximum number of validators that may participate in validating blocks, earning rewards, and governance voting.
-#### `cosmoshub-3` default: `125`
+#### `cosmoshub-4` default: `125`
 
 Validators are ranked by stake-backing based upon the sum of their delegations, and only the top 125 are designated to be active (aka "the active set"). The active set may change any time delegation amounts change. Only active validators may participate in validating blocks, earning rewards, and governance voting. ATOM-holders may participate in staking by delegating their bonded ATOMs to one or more validators in the active set. Delegators may only earn rewards and have their governance votes count if they are delegating to an active validator, the set of which is capped by `MaxValidators`.
 
@@ -47,14 +47,14 @@ Decreasing the value of the `MaxValidators` parameter will likely reduce the num
 Increasing the value of the `MaxValidators` parameter will likely increase the number of validators actively participating in validating blocks, earning rewards, and governance voting for the Cosmos Hub. This may increase the time it takes to produce each new Cosmos Hub block.
 
 #### Notes
-Prior to `cosmoshub-3`, the Cosmos Hub had a maximum set of 100 active validators. Text-based governance proposal [Prop10](https://hubble.figment.network/cosmos/chains/cosmoshub-2/governance/proposals/10) signalled agreement that the active set be increased to 125 validators. Block times were ~6.94 seconds/block with 100 validators, and are now ~7.08 seconds/block with 125 validators.
+Prior to `cosmoshub-4`, the Cosmos Hub had a maximum set of 100 active validators. Text-based governance proposal [Prop10](https://hubble.figment.network/cosmos/chains/cosmoshub-2/governance/proposals/10) signalled agreement that the active set be increased to 125 validators. Block times were ~6.94 seconds/block with 100 validators, and are now ~7.08 seconds/block with 125 validators.
 
 It may be argued that after the Cosmos creators, the validator cohort may be the largest group of contributors to the Cosmos Hub community. Changes to the number of active validator participants may also affect the non-validator contributions to the Cosmos Hub.
 
 ## 3. `KeyMaxEntries`
 ### The maximum number of unbondings between a delegator and validator within the [unbonding period](#1-UnbondingTime).
 ### A delegator's maximum number of simultaneous redelegations from one validator to another validator within the [unbonding period](#1-UnbondingTime).
-#### `cosmoshub-3` default: `7`
+#### `cosmoshub-4` default: `7`
 
 Each delegator has a limited number of times that they may unbond ATOM amounts from a unique validator within the [unbonding period](#1-UnbondingTime). Each delegator also has a limited number of times that they may redelegate from one unique validator to another unique validator within the unbonding period. This limit is set by the parameter `KeyMaxEntries`, which is currently `7`. To be clear, this limit does not apply to a delegator that is redelegating from one validator to different validators.
 
@@ -70,7 +70,7 @@ Aleksandr (All in Bits; Fission Labs) wrote more about `KeyMaxEntries` [here in 
 
 ## 4. `BondDenom`
 ### The unit and denomination for the asset bonded in the system.
-#### `cosmoshub-3` default: `uatom`
+#### `cosmoshub-4` default: `uatom`
 
 When using an asset as a bond on the Cosmos Hub, the unit and denomination of the asset is denoted as the `uatom`, or micro-ATOM, where 1 ATOM is considered 1000000uatom. The protocol doesn't use ATOM for bonds, only uatom.
 
@@ -97,7 +97,7 @@ The `staking` module is responsible for supporting an advanced Proof of Stake (P
 
 The `staking` module contains the following parameters:
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | UnbondingTime     | string (time ns) | "1814400000000000" |
 | MaxValidators     | uint16           | 125               |

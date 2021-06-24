@@ -62,7 +62,7 @@ For instance, this is the complete command that I could use to submit a **testne
 `gaiacli tx gov submit-proposal param-change param.json --from gavin --chain-id gaia-13007 --node 45.77.218.219:26657`
 
 This is the complete command that I could use to submit a **mainnet** parameter-change proposal right now:
-`gaiacli tx gov submit-proposal param-change param.json --from gavin --gas 500000 --fees 7500uatom --chain-id cosmoshub-3 --node cosmos-node-1.figment.network:26657`
+`gaiacli tx gov submit-proposal param-change param.json --from gavin --gas 500000 --fees 7500uatom --chain-id cosmoshub-4 --node cosmos-node-1.figment.network:26657`
 
 1. `gaiacli` is the command-line interface client that is used to send transactions and query the Cosmos Hub
 2. `tx gov submit-proposal param-change` indicates that the transaction is submitting a parameter-change proposal
@@ -75,7 +75,7 @@ This is the complete command that I could use to submit a **mainnet** parameter-
    - the network still accepts zero fees, but many nodes will not transmit your transaction to the network without a minimum fee
    - many nodes (including the Figment node) use a minimum fee to disincentivize transaction spamming
    - 7500uatom is equal to 0.0075 ATOM
-6. `--chain-id cosmoshub-3` is Cosmos Hub 3
+6. `--chain-id cosmoshub-4` is Cosmos Hub 4
    - the testnet chain ID is [gaia-13007](https://hubble.figment.network/cosmos/chains/gaia-13007)
 7. `--node cosmos-node-1.figment.network:26657` is using Figment Networks' node to send the transaction to the Cosmos Hub 3 network
 

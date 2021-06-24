@@ -8,7 +8,7 @@ If you're technically-inclined, [this is the technical specification](#technical
 
 ## 1. `sendenabled`
 ### Token transfer functionality.
-#### `cosmoshub-3` default: `true`
+#### `cosmoshub-4` default: `true`
 
 The Cosmos Hub (cosmoshub-1) launched without transfer functionality enabled. Users were able to stake and earn rewards, but were unable to transfer ATOMs between accounts until the cosmoshub-2 chain launched. Transfer functionality may be disabled and enabled via governance proposal.
 
@@ -42,6 +42,6 @@ The `bank` module is responsible for handling multi-asset coin transfers between
 
 The `bank` module contains the following parameter:
 
-| Key                    | Type            | cosmoshub-3 genesis setting|
+| Key                    | Type            | cosmoshub-4 genesis setting|
 |------------------------|-----------------|---------|
 | sendenabled            | bool            | true    |

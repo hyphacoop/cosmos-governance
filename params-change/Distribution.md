@@ -13,7 +13,7 @@ If you're technically-inclined, [these are the technical specifications](#techni
 
 ## 1. `communitytax`
 ### The proportion of staking rewards diverted to the community pool.
-#### `cosmoshub-3` default: `0.020000000000000000`
+#### `cosmoshub-4` default: `0.020000000000000000`
 
 Staking on the Cosmos Hub entitles participants to inflationary (aka "block") rewards and transaction fees. A portion of these staking rewards is diverted to the community pool, which can be spent with a successful community-spend governance proposal. `communitytax` is the parameter that determines the proportion of staking rewards diverted to the community pool, which is currently `0.020000000000000000` (2%) of all staking rewards.
 
@@ -27,7 +27,7 @@ Increasing the value of the `communitytax` parameter will increase the rate that
 
 ## 2. `baseproposerreward`
 ### The fixed base reward bonus for the validator proposing a block, as a proportion of transaction fees.
-#### `cosmoshub-3` default: `0.010000000000000000`
+#### `cosmoshub-4` default: `0.010000000000000000`
 
 All validators in the active set share the rewards for producing a block equally, except for the proposer of a valid block: that validator receives a bonus of `0.010000000000000000` (1%) more in transaction fees. The proposer must include a minimum of 2/3 of precommit signatures from the other validators in the active set in order for the block to be valid and to receive the `baseproposerreward` bonus. All in Bits has published more in-depth information [here](https://hub.cosmos.network/master/validators/validator-faq.html#how-are-fees-distributed).
 
@@ -43,7 +43,7 @@ The Cosmos Hub transaction fee volume is proportionally very low in value compar
 
 ## 3. `bonusproposerreward`
 ### The maximum additional reward bonus for the validator proposing a block, as a proportion of transaction fees. 
-#### `cosmoshub-3` default: `0.040000000000000000`
+#### `cosmoshub-4` default: `0.040000000000000000`
 
 All validators in the active set share the rewards for producing a block equally, except for the proposer of a valid block. If that validator includes more than a minimum of 2/3 of precommit signatures from the other validators in the active set, they are eligible to receive the `bonusproposerreward` of up to 4% (`0.040000000000000000`), beyond the 1% `baseproposerreward`. The bonus proposer reward amount that a validator receives depends upon how many precommit signatures are included in the proposed block (additional to the requisite 2/3). All in Bits has published more in-depth information [here](https://hub.cosmos.network/master/validators/validator-faq.html#how-are-fees-distributed).
 
@@ -92,7 +92,7 @@ Delegators' rewards: 100 * 80% - Commission = 79.2 Atoms (each delegator will be
 
 ## 4. `withdrawaddrenabled`
 ### Determines whether or not delegators may set a separate address for receiving staking rewards.
-#### `cosmoshub-3` default: `true`
+#### `cosmoshub-4` default: `true`
 
 Delegators can designate a separate withdrawal address (account) that receives staking rewards when `withdrawaddrenabled` is set to `true`. When `withdrawaddrenabled` is set to `false`, the delegator can no longer designate a separate address for withdrawals.
 
@@ -133,7 +133,7 @@ The `distribution` module enables a simple distribution mechanism that passively
 
 The `distribution` module contains the following parameters:
 
-| Key           | Type   | cosmoshub-3 genesis setting        |
+| Key           | Type   | cosmoshub-4 genesis setting        |
 |---------------------|--------------|------------------------|
 | communitytax        | string (dec) | "0.020000000000000000" |
 | baseproposerreward  | string (dec) | "0.010000000000000000" |

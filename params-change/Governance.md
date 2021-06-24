@@ -23,7 +23,7 @@ If you're technically-inclined, [these are the technical specifications](#techni
 ## 1. `depositparams`
 ## `mindeposit`
 ### The minimum deposit required for a proposal to enter the [voting period](#votingperiod), in micro-ATOMs.
-#### `cosmoshub-3` default: `512000000` `uatom`
+#### `cosmoshub-4` default: `512000000` `uatom`
 
 Prior to a governance proposal entering the [voting period](#votingperiod) (ie. for the proposal to be voted upon), there must be at least a minimum number of ATOMs deposited. Anyone may contribute to this deposit. Deposits of passed and failed proposals are returned to the contributors. Deposits are burned when proposals 1) [expire](#maxdepositperiod), 2) fail to reach [quorum](#quorum), or 3) are [vetoed](#veto). This parameter subkey value represents the minimum deposit required for a proposal to enter the [voting period](#votingperiod) in micro-ATOMs, where `512000000uatom` is equivalent to 512 ATOM.
 
@@ -36,7 +36,7 @@ Increasing the value of the `mindeposit` subkey will require risking a greater n
 
 ## `maxdepositperiod`
 ### The maximum amount of time that a proposal can accept deposit contributions before expiring, in nanoseconds.
-#### `cosmoshub-3` default: `1209600000000000`
+#### `cosmoshub-4` default: `1209600000000000`
 
 Prior to a governance proposal entering the [voting period](#votingperiod), there must be at least a minimum number of ATOMs deposited. This parameter subkey value represents the maximum amount of time that the proposal has to reach the minimum deposit amount before expiring. The maximum amount of time that a proposal can accept deposit contributions before expiring is currently `1209600000000000` nanoseconds or 14 days. If the proposal expires, any deposit amounts will be burned.
 
@@ -53,7 +53,7 @@ Currently most network explorers (eg. Hubble, Big Dipper, Mintscan) give the sam
 ## 2. `votingparams`
 ## `votingperiod`
 ### The maximum amount of time that a proposal can accept votes before the voting period concludes, in nanoseconds.
-#### `cosmoshub-3` default: `1209600000000000`
+#### `cosmoshub-4` default: `1209600000000000`
 
 Once a governance proposal enters the voting period, there is a maximum period of time that may elapse before the voting period concludes. This parameter subkey value represents the maximum amount of time that the proposal has to accept votes, which is currently `1209600000000000` nanoseconds or 14 days. If the proposal vote does not reach quorum ((ie. 40% of the network's voting power is participating) before this time, any deposit amounts will be burned and the proposal's outcome will not be considered to be valid. Voters may change their vote any number of times before the voting period ends. This voting period is currently the same for any kind of governance proposal.
 
@@ -74,7 +74,7 @@ Historically, off-chain discussions and engagement appears to be have been great
 ## 2. `tallyparams`
 ## `quorum`
 ### The minimum proportion of network voting power required for a governance proposal's outcome to be considered valid.
-#### `cosmoshub-3` default: `0.400000000000000000`
+#### `cosmoshub-4` default: `0.400000000000000000`
 
 Quorum is required for the outcome of a governance proposal vote to be considered valid and for deposit contributors to recover their deposit amounts, and this parameter subkey value represents the minimum value for quorum. Voting power, whether backing a vote of 'yes', 'abstain', 'no', or 'no-with-veto', counts toward quorum. If the proposal vote does not reach quorum (ie. 40% of the network's voting power is participating) before this time, any deposit amounts will be burned and the proposal outcome will not be considered to be valid.
 
@@ -87,7 +87,7 @@ Increasing the value of the `quorum` subkey will require a larger proportion of 
 
 ## `threshold`
 ### The minimum proportion of participating voting power required for a governance proposal to pass.
-#### `cosmoshub-3` default: `0.500000000000000000`
+#### `cosmoshub-4` default: `0.500000000000000000`
 
 A simple majority 'yes' vote (ie. 50% of participating voting power) is required for a governance proposal vote to pass. Though necessary, a simple majority 'yes' vote may not be sufficient to pass a proposal in two scenarios:
 1. Failure to reach [quorum](#quorum) of 40% network power or
@@ -108,7 +108,7 @@ Increasing the value of the `threshold` subkey will increase the proportion of v
 
 ## `veto`
 ### The minimum proportion of participating voting power to veto (ie. fail) a governance proposal.
-#### `cosmoshub-3` default: `0.334000000000000000`
+#### `cosmoshub-4` default: `0.334000000000000000`
 
 Though a simple majority 'yes' vote (ie. 50% of participating voting power) is required for a governance proposal vote to pass, a 'no-with-veto' vote of 33.4% of participating voting power or greater can override this outcome and cause the proposal to fail. This enables a minority group representing greater than 1/3 of voting power to fail a proposal that would otherwise pass.
 
@@ -175,20 +175,20 @@ The `gov` module is responsible for the on-chain governance system. In this syst
 
 The `gov` module contains the following parameters:
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | depositparams | object | {"min_deposit":[{"denom":"uatom","amount":"512000000"}],"max_deposit_period":"1209600000000000"}     |
 | **Subkeys** |
 | min_deposit        | array (coins)    | [{"denom":"uatom","amount":"512000000"}] |
 | max_deposit_period | string (time ns) | "1209600000000000"                       |
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | votingparams  | object | {"voting_period":"1209600000000000"}     |
 | **Subkey** |
 | voting_period      | string (time ns) | "1209600000000000" |
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | depositparams | object | {"min_deposit":[{"denom":"uatom","amount":"512000000"}],"max_deposit_period":"1209600000000000"}     |
 | **Subkeys** |

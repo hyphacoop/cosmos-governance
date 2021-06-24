@@ -16,7 +16,7 @@ If you're technically-inclined, [these are the technical specifications](#techni
 
 ## 1. `MintDenom`
 ### Type of asset/coin that the Cosmos Hub mints.
-#### `cosmoshub-3` default: `uatom`
+#### `cosmoshub-4` default: `uatom`
 
 This is the type of asset (aka coin) that is being minted. The Cosmos Hub produces `uatom`, or micro-ATOM, where 1,000,000 uatom is equivalent to 1 ATOM.
 
@@ -27,7 +27,7 @@ Changing the `MintDenom` will change the asset that the Cosmos Hub mints from th
 
 ## 2. `InflationRateChange`
 ### A factor of and limit to the speed at which the Cosmos Hub's inflation rate changes.
-#### `cosmoshub-3` default: `0.130000000000000000`
+#### `cosmoshub-4` default: `0.130000000000000000`
 
 Cosmos Hub's inflation rate can change faster or slower, depending on staking participation, and is limited to a minimum of 7% and maximum of 20%. The inflation rate cannot increase or decrease faster than 13% per year (`InflationRateChange`). The speed that the inflation rate changes depends upon two things:
 1. how far away the *current staking participation ratio* is from [`GoalBonded`](#5-GoalBonded) (67%)
@@ -59,7 +59,7 @@ The Cosmos Hub's inflation rate is tied to its staking participation ratio in or
 
 ## 3. `InflationMax`
 ### The maximum rate that the Cosmos Hub can mint new ATOMs, proportional to the supply.
-#### `cosmoshub-3` default: `0.200000000000000000`
+#### `cosmoshub-4` default: `0.200000000000000000`
 
 The maximum rate that the Cosmos Hub can be set to mint new ATOMs is determined by `InflationMax`, which is 20% (`0.200000000000000000`) of the ATOM supply per year and based on the assumption that there are 4,855,015 blocks produced per year (see [`BlocksPerYear`](#6-BlocksPerYear)). If the Cosmos Hub's staking ratio (ie. the number of ATOMs staked vs total supply) remains below [`GoalBonded`](#5-GoalBonded)(67%) for long enough, its inflation setting will eventually reach this maximum.
 
@@ -75,7 +75,7 @@ The effective rate of inflation tends to be different than the set rate of infla
 
 ## 4. `InflationMin`
 ### The minimum rate that the Cosmos Hub can mint new ATOMs, proportional to the supply.
-#### `cosmoshub-3` default: `0.070000000000000000`
+#### `cosmoshub-4` default: `0.070000000000000000`
 
 The minimum rate that the Cosmos Hub can be set to mint new ATOMs is determined by `InflationMin`, which is 7% (`0.070000000000000000`) of the ATOM supply per year and based on the assumption that there are 4,855,015 blocks produced per year (see [`BlocksPerYear`](#6-BlocksPerYear)). If the Cosmos Hub's staking ratio (ie. the number of ATOMs staked vs total supply) remains above [`GoalBonded`](#5-GoalBonded)(67%) for long enough, its inflation setting will eventually reach this minimum.
 
@@ -92,7 +92,7 @@ The effective rate of inflation tends to be different than the set rate of infla
 
 ## 5. `GoalBonded`
 ### The target proportion of staking participation, relative to the ATOM supply.
-#### `cosmoshub-3` default: `0.670000000000000000`
+#### `cosmoshub-4` default: `0.670000000000000000`
 
 `GoalBonded` is the target proportion of staking participation, relative to the ATOM supply. Currently the goal of the system's design is to have 67% (`0.670000000000000000`) of the total ATOM supply bonded and participating in staking. When over 67% of the supply is staked, the inflation set rate begins decreasing at a maximum yearly rate of [`InflationRateChange`](#2-InflationRateChange) until it reaches and remains at the [`InflationMin`](#4-InflationMin) of 7%. When under 67% of the supply is staked, the inflation set rate begins increasing at a maximum yearly rate of [`InflationRateChange`](#2-InflationRateChange) until it reaches and remains at the [`InflationMax`](#3-InflationMax) of 20%.
 
@@ -106,7 +106,7 @@ Increasing the value of the `GoalBonded` parameter will cause the Cosmos Hub's i
 
 ## 6. `BlocksPerYear`
 ### The system's assumed number of blocks that the Cosmos Hub will produce in one year.
-#### `cosmoshub-3` default: `4855015`
+#### `cosmoshub-4` default: `4855015`
 
 `BlocksPerYear` is the setting for the system's assumed number of blocks that the Cosmos Hub will produce in one year. `BlocksPerYear` is currently `4855015` and the network's inflationary behaviour will be aligned with its settings when the average block time is 6.50 seconds over one year. `BlocksPerYear` is most notably used in by the system to determine the rate that new ATOMs are minted, which can vary if block times vary from 6.50 seconds per block, since effectively a different number of blocks will be produced in one year and ATOMs are minted each block.
 
@@ -152,7 +152,7 @@ It can be broken down in the following way:
 
 The `mint` module contains the following parameters:
 
-| Key           | Type   | cosmoshub-3 genesis setting                |
+| Key           | Type   | cosmoshub-4 genesis setting                |
 | ----------------------- | ---------------- | ---------------------- |
 | MintDenom           | string          | "uatom"                |
 | InflationRateChange | string (dec)    | "0.130000000000000000" |

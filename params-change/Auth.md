@@ -12,7 +12,7 @@ If you're technically-inclined, [these are the technical specifications](#techni
 
 ## 1. `MaxMemoCharacters`
 ### The character limit for each transaction memo.
-#### `cosmoshub-3` default: `512`
+#### `cosmoshub-4` default: `512`
 
 There is an option to include a "memo," or additional information (data) to Cosmos Hub transactions, whether sending funds, delegating, voting, or other transaction types. This parameter limits the number of characters that may be included in the memo line of each transaction.
 
@@ -25,7 +25,7 @@ Increasing the value of `MaxMemoCharacters` will increase the character limit fo
 
 ## 2. `TxSigLimit`
 ### The max number of signatures per transaction
-#### `cosmoshub-3` default: `7`
+#### `cosmoshub-4` default: `7`
 
 Users and applications may create multisignature (aka multisig) accounts. These accounts require more than one signature to generate a transaction. This parameter limits the number of signatures in a transaction.
 
@@ -38,7 +38,7 @@ Increasing the value of `TxSigLimit` will increase the maximum number of signatu
 
 ## 3. `TxSizeCostPerByte`
 ### Sets the cost of transactions, in units of gas.
-#### `cosmoshub-3` default: `10`
+#### `cosmoshub-4` default: `10`
 
 `TxSizeCostPerByte` is used to compute the gas-unit consumption for each transaction.
 
@@ -51,7 +51,7 @@ Increasing the value of `TxSizeCostPerByte` will raise the number of gas units u
 
 ## 4. `SigVerifyCostED25519`
 ### The cost for verifying ED25519 signatures, in units of gas.
-#### `cosmoshub-3` default: `590`
+#### `cosmoshub-4` default: `590`
 
 Ed25519 is the EdDSA cryptographic signature scheme (using SHA-512 (SHA-2) and Curve25519) that is used by Cosmos Hub validators. `SigVerifyCostED25519` is the gas (ie. computational) cost for verifying ED25519 signatures, and ED25519-based transactions are not currently accepted by the Cosmos Hub.
 
@@ -67,7 +67,7 @@ Ed25519 signatures are not currently being accepted by the Cosmos Hub. Ed25519 s
 
 ## 5. `SigVerifyCostSecp256k1`
 ### The cost for verifying Secp256k1 signatures, in units of gas.
-#### `cosmoshub-3` default: `1000`
+#### `cosmoshub-4` default: `1000`
 
 Secp256k1 is an elliptic curve domain parameter for cryptographic signatures used by user accounts in the Cosmos Hub. `SigVerifyCostSecp256k1` is the gas (ie. computational) cost for verifying Secp256k1 signatures. Practically all Cosmos Hub transactions require Secp256k1 signature verifications.
 
@@ -105,7 +105,7 @@ The `auth` module is responsible for specifying the base transaction and account
 
 The `auth` module contains the following parameters:
 
-| Key                    | Type            | cosmoshub-3 genesis setting|
+| Key                    | Type            | cosmoshub-4 genesis setting|
 |------------------------|-----------------|---------|
 | MaxMemoCharacters      | string (uint64) | "512"   |
 | TxSigLimit             | string (uint64) | "7"     |

@@ -21,7 +21,7 @@ Si estás técnicamente preparado, [estas son las especificaciones técnicas](pa
 ## 1. `depositparams`
 ## `mindeposit`
 ### El depósito mínimo requerido para que una propuesta entre en el [período de votación](params-change/Governance.md#votingperiod), en micro-ATOMs
-#### `cosmoshub-3` por defecto: `512000000` `uatom`
+#### `cosmoshub-4` por defecto: `512000000` `uatom`
 
 Antes de que una propuesta de gobierno entre en el [período de votación](params-change/Governance.md#votingperiod) (es decir, para que la propuesta sea votada), debe haber al menos un número mínimo de ATOMs depositados. Cualquiera puede contribuir a este depósito. Los depósitos de las propuestas aprobadas y fallidas se devuelven a los contribuyentes. Los depósitos se queman cuando las propuestas 1) [expiran](params-change/Governance.md#maxdepositperiod), 2) no alcanzan el [quórum](params-change/Governance.md#quorum), o 3) son [vetadas](params-change/Governance.md#veto). El valor de subkey de este parámetro representa el depósito mínimo requerido para que una propuesta entre en el [período de votación](params-change/Governance.md#votingperiod) en micro-ATOMs, donde `512000000uatom` equivalen a 512 ATOM.
 
@@ -34,7 +34,7 @@ Para aumentar el valor de subkey `mindeposit` será necesario arriesgar un mayor
 
 ## `maxdepositperiod`
 ### La cantidad máxima de tiempo que una propuesta puede aceptar contribuciones de depósito antes de expirar, en nanosegundos.
-#### `cosmoshub-3` por defecto: `1209600000000000`
+#### `cosmoshub-4` por defecto: `1209600000000000`
 
 Antes de que una propuesta de gobierno entre en el [período de votación](params-change/Governance.md#votingperiod), debe haber al menos un número mínimo de ATOMs depositados. El valor de subkey de este parámetro representa la cantidad máxima de tiempo que la propuesta tiene para alcanzar la cantidad mínima de depósito antes de expirar. La cantidad máxima de tiempo que una propuesta puede aceptar contribuciones de depósito antes de expirar es actualmente de 1209600000000000 nanosegundos o 14 días. Si la propuesta expira, cualquier cantidad de depósito será quemada.
 
@@ -51,7 +51,7 @@ Actualmente, la mayoría de los exploradores de la red (por ejemplo, Hubble, Big
 ## 2. `votingparams`
 ## `votingperiod`
 ### La cantidad máxima de tiempo que una propuesta puede aceptar votos antes de que concluya el período de votación, en nanosegundos.
-#### `cosmoshub-3` por defecto: `1209600000000000`
+#### `cosmoshub-4` por defecto: `1209600000000000`
 
 Una vez que una propuesta de gobierno entra en el período de votación, hay un período máximo de tiempo que puede transcurrir antes de que concluya el período de votación. El valor de subkey de este parámetro representa la cantidad máxima de tiempo que la propuesta tiene para aceptar los votos, que actualmente es de `1209600000000000` nanosegundos o 14 días. Si la votación de la propuesta no alcanza el quórum (es decir, el 40% del poder de voto de la red participa) antes de este tiempo, se quemarán las cantidades depositadas y el resultado de la propuesta no se considerará válido. Los votantes pueden cambiar su voto tantas veces como quieran antes de que termine el período de votación. Este período de votación es actualmente el mismo para cualquier tipo de propuesta de gobierno.
 
@@ -72,7 +72,7 @@ Históricamente, los debates y el compromiso fuera de la cadena parecen haber si
 ## 2. `tallyparams`
 ## `quorum`
 ### La proporción mínima de poder de voto de la red que se requiere para que el resultado de una propuesta de gobierno se considere válido.
-#### `cosmoshub-3` por defecto: `0.400000000000000000`
+#### `cosmoshub-4` por defecto: `0.400000000000000000`
 
 Se requiere quórum para que el resultado de la votación de una propuesta de gobierno se considere válido y para que los contribuyentes de depósitos recuperen sus cantidades depositadas, y el valor de subkey de este parámetro representa el valor mínimo para el quórum. El poder de voto, ya sea que respalde un voto de 'yes', 'abstain', 'no', or 'no-with-veto', cuenta para el quórum. Si la votación de la propuesta no alcanza el quórum (es decir, el 40% del poder de voto de la red participa) antes de este momento, se quemará cualquier cantidad depositada y el resultado de la propuesta no se considerará válido.
 
@@ -85,7 +85,7 @@ El aumento del valor de subkey `quorum` requerirá una mayor proporción de la r
 
 ## `threshold`
 ### La proporción mínima del poder de voto necesario para que se apruebe una propuesta de gobierno.
-#### `cosmoshub-3` por defecto: `0.500000000000000000`
+#### `cosmoshub-4` por defecto: `0.500000000000000000`
 
 Se requiere una mayoría simple de votos a favor (es decir, el 50% del poder de voto participativo) para que se apruebe una propuesta de gobierno. Aunque es necesario, un voto de mayoría simple 'yes' puede no ser suficiente para aprobar una propuesta en dos escenarios:
 1. No se alcanza un [quórum](params-change/Governance.md#quorum) del 40% de la capacidad de la red o
@@ -106,7 +106,7 @@ Aumentar el valor de subkey `threshold` aumentará la proporción de poder de vo
 
 ## `veto`
 ### La proporción mínima de poder de voto de los participantes para vetar (es decir, rechazar) una propuesta de gobierno.
-#### `cosmoshub-3` por defecto: `0.334000000000000000`
+#### `cosmoshub-4` por defecto: `0.334000000000000000`
 
 Aunque se requiere un voto de 'yes' por mayoría simple (es decir, el 50% del poder de voto participante) para que se apruebe una propuesta de gobierno, un voto de 'no-with-veto' del 33,4% del poder de voto participante o superior puede anular este resultado y hacer que la propuesta fracase. Esto permite que un grupo minoritario que represente más de 1/3 del poder de voto pueda hacer fracasar una propuesta que de otro modo sería aprobada.
 
@@ -154,20 +154,20 @@ El módulo `gov` es responsable del sistema de gobierno de la cadena. En este si
 
 El módulo `gov` contiene los siguientes parámetros:
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | depositparams | object | {"min_deposit":[{"denom":"uatom","amount":"512000000"}],"max_deposit_period":"1209600000000000"}     |
 | **Subkeys** |
 | min_deposit        | array (coins)    | [{"denom":"uatom","amount":"512000000"}] |
 | max_deposit_period | string (time ns) | "1209600000000000"                       |
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | votingparams  | object | {"voting_period":"1209600000000000"}     |
 | **Subkey** |
 | voting_period      | string (time ns) | "1209600000000000" |
 
-| Key           | Type   | cosmoshub-3 genesis setting                                                                     |
+| Key           | Type   | cosmoshub-4 genesis setting                                                                     |
 |---------------|--------|:----------------------------------------------------------------------------------------------------|
 | depositparams | object | {"min_deposit":[{"denom":"uatom","amount":"512000000"}],"max_deposit_period":"1209600000000000"}     |
 | **Subkeys** |
